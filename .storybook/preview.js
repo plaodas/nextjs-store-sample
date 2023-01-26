@@ -56,7 +56,7 @@ const OriginalNextImage = NextImage.default;
 Object.defineProperty(NextImage, 'default', {
   configurable: true,
   value: (props) => typeof props.src === 'string' ? (
-    <OriginalNextImage {...props} unoptimizes blurDataURL={props.src} />
+    <OriginalNextImage {...props} unoptimized blurDataURL={props.src} />
   ) : (
     <OriginalNextImage {...props} unoptimized />
   )
