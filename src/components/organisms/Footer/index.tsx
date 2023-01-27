@@ -26,17 +26,17 @@ const Footer = () => {
           <nav>
             <Box marginBottom={2}>
               <Link href="/" passHref>
-                <Anchor as="a">トップ</Anchor>
+                トップ
               </Link>
             </Box>
             <Box marginBottom={2}>
               <Link href="/" passHref>
-                <Anchor as="a">採用</Anchor>
+                採用
               </Link>
             </Box>
             <Box marginBottom={2}>
               <Link href="/" passHref>
-                <Anchor as="a">お知らせ</Anchor>
+                お知らせ
               </Link>
             </Box>
           </nav>
@@ -48,17 +48,17 @@ const Footer = () => {
           <nav>
             <Box marginBottom={2}>
               <Link href="/" passHref>
-                <Anchor as="a">利用規約</Anchor>
+                利用規約
               </Link>
             </Box>
             <Box marginBottom={2}>
               <Link href="/" passHref>
-                <Anchor as="a">プライバシーポリシー</Anchor>
+                プライバシーポリシー
               </Link>
             </Box>
             <Box marginBottom={2}>
               <Link href="/" passHref>
-                <Anchor as="a">配送と返品</Anchor>
+                配送と返品
               </Link>
             </Box>
           </nav>

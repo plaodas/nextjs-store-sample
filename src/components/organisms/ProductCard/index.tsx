@@ -108,9 +108,9 @@ const ProductCard = ({
             height={imgSize ?? 240}
             containerWidth={size}
             containerHeight={size}
-            objectFit="cover"
             placeholder="blur"
             blurDataURL={blurDataUrl}
+            style={{ objectFit: 'cover' }}
             alt={''}
           />
         )}
@@ -121,7 +121,7 @@ const ProductCard = ({
             height={imgSize ?? 240}
             containerWidth={size}
             containerHeight={size}
-            objectFit="cover"
+            style={{ objectFit: 'cover' }}
             alt={''}
           />
         )}

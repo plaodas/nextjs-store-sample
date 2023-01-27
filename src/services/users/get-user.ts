@@ -19,7 +19,7 @@ const getUser = async (
   { id }: GetUserParams,
 ): Promise<User> => {
   return await fetcher(
-    `${context.apiRootUrl.replace(/\/$/g, '')}/auth/users/${id}`,
+    `${context.apiRootUrl.replace(/\/$/g, '')}/users/${id}`,
     {
       headers: {
         Accept: 'application/json',
