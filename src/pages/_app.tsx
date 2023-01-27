@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
-// import { SWRConfig } from 'swr'
+import { SWRConfig } from 'swr'
 import GlobalSpinner from 'components/organisms/GlobalSpinner'
 import { AuthContextProvider } from 'contexts/AuthContext'
 import GlobalSpinnerContextProvider from 'contexts/GlobalSpinnerContext'
@@ -10,6 +10,7 @@ import { theme } from 'themes'
 import type { ApiContext } from 'types'
 import { fetcher } from 'utils'
 
+// グローバルのスタイル
 const GlobalStyle = createGlobalStyle`
 html,
 body,
@@ -65,21 +66,21 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        {/* <SWRConfig
+        <SWRConfig
           value={{
             shouldRetryOnError: false,
             fetcher,
           }}
-        > */}
-        <GlobalSpinnerContextProvider>
-          {/* <ShoppingCartContextProvider> */}
-          <AuthContextProvider context={context}>
-            <GlobalSpinner />
-            <Component {...pageProps} />
-          </AuthContextProvider>
-          {/* </ShoppingCartContextProvider> */}
-        </GlobalSpinnerContextProvider>
-        {/* </SWRConfig> */}
+        >
+          <GlobalSpinnerContextProvider>
+            <ShoppingCartContextProvider>
+              <AuthContextProvider context={context}>
+                <GlobalSpinner />
+                <Component {...pageProps} />
+              </AuthContextProvider>
+            </ShoppingCartContextProvider>
+          </GlobalSpinnerContextProvider>
+        </SWRConfig>
       </ThemeProvider>
     </>
   )

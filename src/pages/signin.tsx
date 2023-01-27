@@ -40,10 +40,10 @@ const SigninPage: NextPage = () => {
           </Box>
           <Box width="100%">
             {/*
-                サインインフォームコンテナ
-                SigninFormのユーザー名・パスワードから認証APIを呼び出し、
-                onSigninコールバックが呼び出される
-              */}
+              サインインフォームコンテナ
+              SigninFormのユーザー名・パスワードから認証APIを呼び出し、
+              onSigninコールバックが呼び出される
+            */}
             <SigninFormContainer onSignin={handleSignin} />
           </Box>
         </Flex>

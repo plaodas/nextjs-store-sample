@@ -9,7 +9,6 @@ import {
 } from 'components/atoms/IconButton'
 import ShapeImage from 'components/atoms/ShapeImage'
 import Spinner from 'components/atoms/Spinner'
-import Text from 'components/atoms/Text'
 import Box from 'components/layout/Box'
 import Flex from 'components/layout/Flex'
 import BadgeIconButton from 'components/molecules/BadgeIconButton'
@@ -128,7 +127,7 @@ const Header = () => {
             })()}
           </NavLink>
           <NavLink>
-            <Link href="/sell">
+            <Link href="/sell" passHref>
               <Button>出品</Button>
             </Link>
           </NavLink>
