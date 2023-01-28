@@ -12,7 +12,7 @@ interface BreadcrumbLinkProp {
  */
 const BreadcrumbLink = ({ position, name, href }: BreadcrumbLinkProp) => {
   return (
-    <Link href={href} legacyBehavior>
+    <Link href={href} passHref legacyBehavior>
       <a itemProp="item">
         <span itemProp="name">{name}</span>
         <meta itemProp="position" content={`${position}`} />
