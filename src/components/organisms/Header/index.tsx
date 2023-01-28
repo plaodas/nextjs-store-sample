@@ -109,7 +109,7 @@ const Header = () => {
                       width={24}
                       height={24}
                       data-testid="profile-shape-image"
-                      alt={''}
+                      alt={authUser.username}
                     />
                   </Link>
                 )

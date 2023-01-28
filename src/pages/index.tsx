@@ -1,5 +1,8 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
+import getConfig from 'next/config'
+import Head from 'next/head'
 import Link from 'next/link'
+import React from 'react'
 import Text from 'components/atoms/Text'
 import Box from 'components/layout/Box'
 import Flex from 'components/layout/Flex'
@@ -37,8 +40,46 @@ const HomePage: NextPage<HomePageProps> = ({
     )
   }
 
+  const SITE_TITLE = 'UHYO トップページ'
+  const SITE_DESCRIPTION = 'UHYO サンプルサイト トップページ'
+  const SITE_NAME = 'UHYO サンプルサイト'
+  const { publicRuntimeConfig } = getConfig()
+
   return (
     <Layout>
+      <Head>
+        <meta key="charset" name="charset" content="utf-8" />
+        <meta
+          key="viewport"
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=5"
+        />
+        <title key="title">{SITE_TITLE}</title>
+        <meta name="title" content={SITE_TITLE} key="meta:title" />
+        <meta
+          name="description"
+          content={SITE_DESCRIPTION}
+          key="meta:description"
+        />
+        <meta property="og:title" content={SITE_TITLE} key="meta:og:title" />
+        <meta
+          property="og:description"
+          content={SITE_DESCRIPTION}
+          key="meta:og:description"
+        />
+        <meta
+          property="og:image"
+          content={`${publicRuntimeConfig.domainUrl}/static/images/icon/icon-512.png`}
+          key="meta:og:image"
+        />
+        <meta property="og:site_name" content={SITE_NAME} />
+        <meta property="og:locale" content="ja_JP" />
+        <meta property="og:type" content="website" />
+        {/* <meta property="fb:app_id" content="556485011968079" /> */}
+        <meta name="twitter:card" content="summary_large_image" />
+        {/* <meta name="twitter:site" content="@truck2hand" /> */}
+      </Head>
+
       <Flex padding={2} justifyContent="center" backgroundColor="primary">
         <Flex
           width={{ base: '100%', md: '1040px' }}

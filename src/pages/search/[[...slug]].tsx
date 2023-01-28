@@ -1,7 +1,10 @@
 import type { NextPage } from 'next'
+import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { logger } from '../../utils/logger'
 import BreadcrumbItem from 'components/atoms/BreadcrumbItem'
+import BreadcrumbLink from 'components/atoms/BreadcrumbLink'
 import Text from 'components/atoms/Text'
 import Box from 'components/layout/Box'
 import Flex from 'components/layout/Flex'
@@ -34,6 +37,32 @@ const SearchPage: NextPage = () => {
     }
   })()
 
+  // const jsonld = {
+  //   '@content': 'https://schema.org',
+  //   '@type': 'BreadcrumbList',
+  //   name: 'パンくずリスト',
+  //   itemListElement: [
+  //     {
+  //       '@type': 'ListItem',
+  //       position: 1,
+  //       item: { name: 'トップ', '@id': 'http://localhost:3000/' },
+  //     },
+  //     {
+  //       '@type': 'ListItem',
+  //       position: 2,
+  //       item: { name: '検索', '@id': 'http://localhost:3000/search' },
+  //     },
+  //     {
+  //       '@type': 'ListItem',
+  //       position: 3,
+  //       item: {
+  //         name: 'トップス',
+  //         '@id': 'http://localhost:3000/search/clothes',
+  //       },
+  //     },
+  //   ],
+  // }
+
   const handleChange = (selected: string[]) => {
     router.push({
       pathname: router.pathname,
@@ -46,6 +75,12 @@ const SearchPage: NextPage = () => {
 
   return (
     <Layout>
+      {/* <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }}
+        ></script>
+      </Head> */}
       <Box
         paddingLeft={{
           base: 2,
@@ -61,17 +96,19 @@ const SearchPage: NextPage = () => {
         <Box marginBottom={1}>
           <Breadcrumb>
             <BreadcrumbItem>
-              <Link href="/">トップ</Link>
+              <BreadcrumbLink position={1} name="トップ" href="/" />
             </BreadcrumbItem>
             <BreadcrumbItem>
-              <Link href="/search">検索</Link>
+              <BreadcrumbLink position={2} name="検索" href="/search" />
             </BreadcrumbItem>
             {/* パンくずリストを選択したカテゴリから生成 */}
             {slug.slice(0, slug.length - 1).map((category, i) => (
               <BreadcrumbItem key={i}>
-                <Link href={`/search/${slug.slice(0, i + 1).join('/')}`}>
-                  {categoryNameDict[category] ?? 'Unknown'}
-                </Link>
+                <BreadcrumbLink
+                  position={i + 2}
+                  name={categoryNameDict[category] ?? 'Unknown'}
+                  href={`/search/${slug.slice(0, i + 1).join('/')}`}
+                />
               </BreadcrumbItem>
             ))}
             {slug.length == 0 && <BreadcrumbItem>すべて</BreadcrumbItem>}
@@ -126,9 +163,9 @@ const SearchPage: NextPage = () => {
                 商品一覧
               </Text>
               {/*
-                商品カードリストコンテナ
-                検索クエリから商品カードリストを表示
-               */}
+                  商品カードリストコンテナ
+                  検索クエリから商品カードリストを表示
+                 */}
               <ProductCardListContainer
                 category={slug.length > 0 ? slug[slug.length - 1] : undefined}
                 conditions={conditions}

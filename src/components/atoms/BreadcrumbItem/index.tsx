@@ -3,7 +3,7 @@ import styled from 'styled-components'
 /**
  * パンくずリスト要素
  */
-const BreadcrumbItem = styled.li`
+const BreadcrumbItemBase = styled.li`
   list-style: none;
   display: inline;
 
@@ -22,5 +22,24 @@ const BreadcrumbItem = styled.li`
     }
   }
 `
+
+interface BreadcrumbItemProps {
+  children?: React.ReactNode
+}
+
+/**
+ * パンくずリスト
+ */
+const BreadcrumbItem = ({ children }: BreadcrumbItemProps) => {
+  return (
+    <BreadcrumbItemBase
+      itemProp="itemListElement"
+      itemScope
+      itemType="https://schema.org/ListItem"
+    >
+      {children}
+    </BreadcrumbItemBase>
+  )
+}
 
 export default BreadcrumbItem

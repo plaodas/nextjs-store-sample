@@ -22,6 +22,9 @@ const nextConfig = {
       },
     ]
   },
+  publicRuntimeConfig: {
+    domainUrl: 'localhost:3000',
+  },
 }
 
 module.exports = nextConfig

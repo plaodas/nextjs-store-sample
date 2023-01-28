@@ -40,7 +40,7 @@ const ScaleImage = ({
   >
     <ScaleEffectImage
       quality="85"
-      alt={props.alt ?? 'Product Image'}
+      // alt={props.alt ?? 'Product Image'}
       height={props.height ?? 320}
       width={props.width ?? 320}
       {...props}

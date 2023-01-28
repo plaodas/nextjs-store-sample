@@ -7,7 +7,9 @@ import type {
 } from 'next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { logger } from '../../utils/logger'
 import BreadcrumbItem from 'components/atoms/BreadcrumbItem'
+import BreadcrumbLink from 'components/atoms/BreadcrumbLink'
 import Separator from 'components/atoms/Separator'
 import Text from 'components/atoms/Text'
 import Box from 'components/layout/Box'
@@ -66,15 +68,17 @@ const ProductPage: NextPage<ProductPageProps> = ({
         <Box>
           <Breadcrumb>
             <BreadcrumbItem>
-              <Link href="/">トップ</Link>
+              <BreadcrumbLink position={1} name="トップ" href="/" />
             </BreadcrumbItem>
             <BreadcrumbItem>
-              <Link href="/search">検索</Link>
+              <BreadcrumbLink position={2} name="検索" href="/search" />
             </BreadcrumbItem>
             <BreadcrumbItem>
-              <Link href={`/search/${product.category}`}>
-                {categoryNameDict[product.category as Category]}
-              </Link>
+              <BreadcrumbLink
+                position={3}
+                name={categoryNameDict[product.category as Category]}
+                href={`/search/${product.category}`}
+              />
             </BreadcrumbItem>
             <BreadcrumbItem>{product.title}</BreadcrumbItem>
           </Breadcrumb>

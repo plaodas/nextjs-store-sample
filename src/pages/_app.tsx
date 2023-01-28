@@ -43,7 +43,7 @@ const context: ApiContext = {
 }
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  logger.debug('hello')
+  logger.info('LOGLOG')
   return (
     <>
       <Head>
