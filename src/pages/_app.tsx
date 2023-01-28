@@ -9,6 +9,7 @@ import { ShoppingCartContextProvider } from 'contexts/ShoppingCartContext'
 import { theme } from 'themes'
 import type { ApiContext } from 'types'
 import { fetcher } from 'utils'
+import { logger } from 'utils/logger'
 
 // グローバルのスタイル
 const GlobalStyle = createGlobalStyle`
@@ -42,6 +43,7 @@ const context: ApiContext = {
 }
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  logger.debug('hello')
   return (
     <>
       <Head>
