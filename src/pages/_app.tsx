@@ -1,15 +1,17 @@
+import CssBaseline from '@mui/material/CssBaseline'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { SWRConfig } from 'swr'
 import GlobalSpinner from 'components/organisms/GlobalSpinner'
+import { Loading } from 'containers/LoadingContainer'
 import { AuthContextProvider } from 'contexts/AuthContext'
 import GlobalSpinnerContextProvider from 'contexts/GlobalSpinnerContext'
 import { ShoppingCartContextProvider } from 'contexts/ShoppingCartContext'
 import { theme } from 'themes'
 import type { ApiContext } from 'types'
 import { fetcher } from 'utils'
-import { logger } from 'utils/logger'
+import Logger from 'utils/logger'
 
 // グローバルのスタイル
 const GlobalStyle = createGlobalStyle`
@@ -43,7 +45,7 @@ const context: ApiContext = {
 }
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  logger.info('LOGLOG')
+  Logger.info('LOGLOG_app.tsx')
   return (
     <>
       <Head>
@@ -68,6 +70,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <SWRConfig
           value={{
             shouldRetryOnError: false,
@@ -75,6 +78,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           }}
         >
           <GlobalSpinnerContextProvider>
+            <Loading />
             <ShoppingCartContextProvider>
               <AuthContextProvider context={context}>
                 <GlobalSpinner />

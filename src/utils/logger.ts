@@ -2,7 +2,7 @@ import pino from 'pino'
 
 const today = new Date()
 
-const LoggerProd = {
+const loggerProd = {
   level: 'info',
   transport: {
     target: 'pino/file',
@@ -15,13 +15,15 @@ const LoggerProd = {
   },
 }
 
-const LoggerDev = {
+const loggerDev = {
   level: 'debug',
   transport: {
     target: 'pino-pretty',
   },
 }
 
-export const logger = pino(
-  process.env.NODE_ENV === 'development' ? LoggerDev : LoggerProd,
+const Logger = pino(
+  process.env.NODE_ENV === 'development' ? loggerDev : loggerProd,
 )
+
+export default Logger

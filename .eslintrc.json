@@ -11,6 +11,8 @@
     "plugin:import/typescript"
   ],
   "rules":{
+    // "semi":["error", "always"],
+    // "quotes":["error", "double"],
     "react/react-in-jsx-scope": "off",
     "import/order": [2, {"alphabetize": {"order":"asc"}}],
     "prettier/prettier":[

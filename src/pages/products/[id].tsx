@@ -7,7 +7,6 @@ import type {
 } from 'next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { logger } from '../../utils/logger'
 import BreadcrumbItem from 'components/atoms/BreadcrumbItem'
 import BreadcrumbLink from 'components/atoms/BreadcrumbLink'
 import Separator from 'components/atoms/Separator'

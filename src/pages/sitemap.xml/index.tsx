@@ -1,6 +1,4 @@
-import { react } from '@babel/types'
 import { GetServerSideProps } from 'next'
-import React from 'react'
 import getAllProducts from 'services/products/get-all-products'
 import getAllUsers from 'services/users/get-all-users'
 import type { ApiContext } from 'types'

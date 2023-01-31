@@ -40,9 +40,7 @@ const HomePage: NextPage<HomePageProps> = ({
     )
   }
 
-  const SITE_TITLE = 'UHYO トップページ'
-  const SITE_DESCRIPTION = 'UHYO サンプルサイト トップページ'
-  const SITE_NAME = 'UHYO サンプルサイト'
+  const { SITE_TITLE, SITE_DESCRIPTION, SITE_NAME } = process.env
   const { publicRuntimeConfig } = getConfig()
 
   return (

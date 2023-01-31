@@ -1,8 +1,6 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { logger } from '../../utils/logger'
 import BreadcrumbItem from 'components/atoms/BreadcrumbItem'
 import BreadcrumbLink from 'components/atoms/BreadcrumbLink'
 import Text from 'components/atoms/Text'

@@ -9,8 +9,11 @@ import { useAuthContext } from 'contexts/AuthContext'
 import { useAuthGuard } from 'utils/hooks'
 
 const SellPage: NextPage = () => {
+  // 認証ガード
+  useAuthGuard()
+
   const router = useRouter()
-  const { authUser } = useAuthContext()
+  const { authUser, isLoading } = useAuthContext()
 
   const handleSave = (err?: Error) => {
     if (authUser && !err) {
@@ -19,11 +22,9 @@ const SellPage: NextPage = () => {
     }
   }
 
-  // 認証ガード
-  useAuthGuard()
-
   return (
     <Layout>
+      {isLoading ? 'loading....' : ''}
       <Flex
         paddingTop={{
           base: 2,
